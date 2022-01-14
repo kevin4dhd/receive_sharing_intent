@@ -124,9 +124,10 @@ class ReceiveSharingIntentPlugin : FlutterPlugin, ActivityAware, MethodCallHandl
             (intent.type == null || intent.type?.startsWith("text") == true)
                     && intent.action == Intent.ACTION_SEND -> { // Sharing text
                 val value = intent.getStringExtra(Intent.EXTRA_TEXT)
+                val extra_stream = intent.getStringExtra(Intent.EXTRA_STREAM)
                 if (initial) initialText = value
                 latestText = value
-                eventSinkText?.success(latestText)
+                eventSinkText?.success(latestText+";;-;;"+extra_stream)
             }
             intent.action == Intent.ACTION_VIEW -> { // Opening URL
                 val value = intent.dataString
