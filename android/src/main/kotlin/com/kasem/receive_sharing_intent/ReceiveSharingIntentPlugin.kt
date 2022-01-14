@@ -133,7 +133,7 @@ class ReceiveSharingIntentPlugin : FlutterPlugin, ActivityAware, MethodCallHandl
                 val value = intent.dataString
                 if (initial) initialText = value
                 latestText = value
-                eventSinkText?.success(latestText)
+                eventSinkText?.success(latestText+"esto??????")
             }
         }
     }
