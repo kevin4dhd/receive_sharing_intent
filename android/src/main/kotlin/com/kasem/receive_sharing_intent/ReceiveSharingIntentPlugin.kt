@@ -119,7 +119,7 @@ class ReceiveSharingIntentPlugin : FlutterPlugin, ActivityAware, MethodCallHandl
                 val value = getMediaUris(intent)
                 if (initial) initialMedia = value
                 latestMedia = value
-                eventSinkMedia?.success(latestMedia?.toString())
+                eventSinkMedia?.success(latestMedia?.toString()+"esto??????")
             }
             (intent.type == null || intent.type?.startsWith("text") == true)
                     && intent.action == Intent.ACTION_SEND -> { // Sharing text
@@ -133,7 +133,7 @@ class ReceiveSharingIntentPlugin : FlutterPlugin, ActivityAware, MethodCallHandl
                 val value = intent.dataString
                 if (initial) initialText = value
                 latestText = value
-                eventSinkText?.success(latestText+"esto??????")
+                eventSinkText?.success(latestText)
             }
         }
     }
