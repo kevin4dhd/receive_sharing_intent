@@ -135,6 +135,13 @@ class ReceiveSharingIntentPlugin : FlutterPlugin, ActivityAware, MethodCallHandl
                 latestText = value
                 eventSinkText?.success(latestText)
             }
+            intent.action == "com.reproductor.video.markplayer" -> {
+                val bundle = intent.extras
+                val value = bundle!!.getString("url")
+                if (initial) initialText = value
+                latestText = value
+                eventSinkText?.success(latestText)
+            }
         }
     }
 
